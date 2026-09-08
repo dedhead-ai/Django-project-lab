@@ -1,0 +1,117 @@
+{% extends 'climateapp/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h1>Climate Data</h1>
+
+        <a
+            href="{% url 'add_climate' %}"
+            class="btn btn-success">
+
+            + Add Data
+
+        </a>
+
+    </div>
+
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered table-striped">
+
+            <thead class="table-dark">
+
+                <tr>
+
+                    <th>Region</th>
+
+                    <th>Temperature</th>
+
+                    <th>Humidity</th>
+
+                    <th>Rainfall</th>
+
+                    <th>Air Quality</th>
+
+                    <th>Date</th>
+
+                    <th>View</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for climate in data %}
+
+                <tr>
+
+                    <td>
+                        {{ climate.region }}
+                    </td>
+
+                    <td>
+                        {{ climate.temperature }} °C
+                    </td>
+
+                    <td>
+                        {{ climate.humidity }} %
+                    </td>
+
+                    <td>
+                        {{ climate.rainfall }} mm
+                    </td>
+
+                    <td>
+                        {{ climate.air_quality }}
+                    </td>
+
+                    <td>
+                        {{ climate.recorded_date }}
+                    </td>
+
+                    <td>
+
+                        <a
+                            href="{% url 'detail' climate.id %}"
+                            class="btn btn-sm btn-primary">
+
+                            View
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td
+                        colspan="7"
+                        class="text-center">
+
+                        No climate data available.
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'climateapp/base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+
+    <h1>{{ climate.region }}</h1>
+
+    <p>
+        Recorded on {{ climate.recorded_date }}
+    </p>
+
+
+    <div class="row">
+
+
+        <div class="col-md-6 mb-3">
+
+            <div class="card p-3">
+
+                <h3>🌡️ Temperature</h3>
+
+                <h4>
+                    {{ climate.temperature }} °C
+                </h4>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 mb-3">
+
+            <div class="card p-3">
+
+                <h3>💧 Humidity</h3>
+
+                <h4>
+                    {{ climate.humidity }} %
+                </h4>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 mb-3">
+
+            <div class="card p-3">
+
+                <h3>🌧️ Rainfall</h3>
+
+                <h4>
+                    {{ climate.rainfall }} mm
+                </h4>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-6 mb-3">
+
+            <div class="card p-3">
+
+                <h3>🌫️ Air Quality</h3>
+
+                <h4>
+                    {{ climate.air_quality }}
+                </h4>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <a
+        href="{% url 'climate_data' %}"
+        class="btn btn-primary">
+
+        ← Back to Climate Data
+
+    </a>
+
+</div>
+
+{% endblock %}

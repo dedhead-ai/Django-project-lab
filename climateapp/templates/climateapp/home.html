@@ -1,0 +1,134 @@
+{% extends 'climateapp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="hero text-center">
+
+    <h1>Climate Monitor</h1>
+
+    <p>
+        Monitor climate conditions across different regions.
+    </p>
+
+
+    <!-- Climate Image -->
+
+    <img
+        id="climateImage"
+        src="{% static 'climateapp/images/climate.jpg' %}"
+        alt="Climate"
+        class="img-fluid rounded"
+        width="600">
+
+
+    <br><br>
+
+
+    <!-- View Climate Data -->
+
+    <a
+        href="{% url 'climate_data' %}"
+        class="btn btn-success">
+
+        View Climate Data
+
+    </a>
+
+
+    <!-- Add Climate Data -->
+
+    <a
+        href="{% url 'add_climate' %}"
+        class="btn btn-primary">
+
+        Add Climate Data
+
+    </a>
+
+
+    <br>
+
+
+    <!-- Welcome Message Button -->
+
+    <button
+        onclick="showMessage()"
+        class="btn btn-warning mt-3">
+
+        Welcome Message
+
+    </button>
+
+</div>
+
+
+
+<!-- Climate Information Cards -->
+
+<div class="container mt-5">
+
+    <div class="row">
+
+
+        <!-- Temperature -->
+
+        <div class="col-md-4">
+
+            <div class="card p-3">
+
+                <h3>🌡️ Temperature</h3>
+
+                <p>
+                    Monitor temperature changes
+                    across different regions.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Humidity -->
+
+        <div class="col-md-4">
+
+            <div class="card p-3">
+
+                <h3>💧 Humidity</h3>
+
+                <p>
+                    Track humidity levels
+                    in different locations.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Rainfall -->
+
+        <div class="col-md-4">
+
+            <div class="card p-3">
+
+                <h3>🌧️ Rainfall</h3>
+
+                <p>
+                    Record and monitor
+                    rainfall information.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+{% endblock %}
