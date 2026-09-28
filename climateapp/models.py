@@ -1,5 +1,33 @@
 from django.db import models
 
+class Question(models.Model):
+    question_text = models.CharField(max_length=300)
+    created_at = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return self.question_text
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(
+        Question,
+        on_delete=models.CASCADE,
+        related_name="choices"
+    )
+    choice_text = models.CharField(max_length=200)
+    votes = models.PositiveIntegerField(default=0)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["order"]
+
+    def __str__(self):
+        return self.choice_text
+
 
 class Region(models.Model):
     name = models.CharField(max_length=100)

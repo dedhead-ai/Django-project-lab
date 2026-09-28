@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+admin.site.site_header = "🌍 Climate Monitoring Administration"
+admin.site.site_title = "Climate Admin"
+admin.site.index_title = "Climate Monitoring Dashboard"
+
 
 urlpatterns = [
 

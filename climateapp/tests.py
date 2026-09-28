@@ -18,11 +18,11 @@ class ClimateDataModelTest(TestCase):
             recorded_date=date.today()
         )
 
-        self.assertContains(climate.region, "Mumbai")
-        self.assertContains(climate.temperature, 30.5)
-        self.assertDictEqual(climate.humidity, 70)
-        self.assertIsNotNone(climate.rainfall, 20)
-        self.assertLessEqual(climate.air_quality, 70)
+        self.assertEqual(climate.region, "Mumbai")
+        self.assertEqual(climate.temperature, 30.5)
+        self.assertEqual(climate.humidity, 70)
+        self.assertEqual(climate.rainfall, 20)
+        self.assertEqual(climate.air_quality, 80)
 
     def test_region_string(self):
 
