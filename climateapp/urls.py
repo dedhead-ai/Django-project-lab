@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 
 
+
+
 urlpatterns = [
 
     path(
@@ -43,5 +45,7 @@ urlpatterns = [
     views.weather_station_api,
     name='weather_station_api'
     ),
+    
+    
 
 ]
